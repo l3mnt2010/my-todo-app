@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { Route,Routes } from "react-router-dom";
+import TodoList from "./pages/Todo/TodoList";
+import TodoAddHook  from "./pages/Todo/TodoAddHook";
+import Unregister from "./pages/Todo/Unregister";
+import Deletes from "./pages/ui/SetObj";
+const App: React.FC<any> = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+      <Route path="/" element={<TodoList/>} />
+        <Route path="/add" element={<TodoAddHook/>}/>
+        <Route path="/unregister" element={<Unregister/>}/>
+        <Route path={`/del/:id`} element={<Deletes/>}/>
+
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
